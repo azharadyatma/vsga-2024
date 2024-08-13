@@ -10,15 +10,31 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText etSuhu;
+    Spinner Opsi;
+    Button btnConvert, btnClear;
+    LinearLayout layoutHasil;
+    TextView tvhasilHitung, tvhasilKonversi, tvRumus, tvRumusnya;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        etSuhu = findViewById(R.id.etSuhu);
+        Opsi = findViewById(R.id.Opsi);
+        btnConvert = findViewById(R.id.btnConvert);
+        btnClear = findViewById(R.id.btnClear);
+        layoutHasil = findViewById(R.id.layoutHasil);
+        tvhasilHitung = findViewById(R.id.tvhasilHitung);
+        tvhasilKonversi = findViewById(R.id.tvhasilKonversi);
+        tvRumus = findViewById(R.id.tvRumus);
+        tvRumusnya = findViewById(R.id.tvRumusnya);
+
+        ArrayAdapter adapter = new ArrayAdapter(
+                MainActivity.this,
+                android.R.layout.simple_spinner_dropdown_item,
+                Pilihan
+        );
     }
 }
